@@ -1,0 +1,24 @@
+import math
+import time
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    for i in range(3, int(math.sqrt(n)) + 1, 2):
+        if n % i == 0:
+            return False
+    return True
+
+# Test cases
+test_cases = [11, 4, 29]
+
+for case in test_cases:
+    start_time = time.time()
+    result = is_prime(case)
+    end_time = time.time()
+    execution_time = end_time - start_time
+    print(f"Test case {case}: is_prime = {result}, execution_time = {execution_time:.10f} seconds")
